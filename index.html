@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="uz" data-theme="dark"><meta name="google-site-verification" content="RZhmaTNc4pE4a-D286WYsn_7ZyVB3K3YfO2l33aiwBs" />z
+<html lang="uz" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>100 Kunda 100 Sura</title>
-<meta name="google-site-verification" content="RZhmaTNc4pE4a-D286WYsn_7ZyVB3K3YfO2l33aiwBs" />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
@@ -669,40 +668,103 @@
               </div>
             </div>
 
-            {/* Join Form Modal */}
+            {/* Join Form - inline card */}
             {showJoin && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onClick={() => setShowJoin(false)}>
-                <div className="glass-card p-8 max-w-md w-full relative" onClick={e => e.stopPropagation()}>
-                  <GeometricDeco />
-                  <button onClick={() => setShowJoin(false)} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">✕</button>
-                  
-                  <div className="text-center mb-6">
-                    <div className="text-5xl mb-3">☪️</div>
-                    <h2 className="font-cinzel text-2xl gold-text font-bold mb-1">Challengega qo'shiling</h2>
-                    <p className="text-gray-400 text-sm">100 kunlik yodlash safarin boshlang</p>
-                  </div>
-
-                  <div className="space-y-4">
+              <div className="max-w-md mx-auto mb-12 animate-fadeinup" style={{position:'relative', zIndex:10}}>
+                <div style={{
+                  background: 'rgba(6,20,10,0.95)',
+                  border: '1px solid rgba(212,175,55,0.35)',
+                  borderRadius: '1.5rem',
+                  padding: '2rem',
+                  boxShadow: '0 25px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.1)',
+                  backdropFilter: 'blur(24px)',
+                }}>
+                  <div className="flex items-center justify-between mb-6">
                     <div>
-                      <label className="text-gray-300 text-sm font-semibold mb-2 block">👤 To'liq ismingiz</label>
-                      <input type="text" placeholder="Masalan: Ahmad Karimov"
-                        className="input-dark w-full px-4 py-3 text-base"
-                        value={form.name} onChange={e => setForm({...form, name: e.target.value})} />
+                      <h2 className="font-cinzel text-2xl font-bold" style={{background:'linear-gradient(135deg,#D4AF37,#F0D060)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
+                        Challengega qo'shiling
+                      </h2>
+                      <p style={{color:'rgba(255,255,255,0.45)', fontSize:'0.85rem', marginTop:'2px'}}>100 kunlik yodlash safarin boshlang</p>
                     </div>
-                    <div>
-                      <label className="text-gray-300 text-sm font-semibold mb-2 block">📱 Telegram username</label>
-                      <input type="text" placeholder="@username"
-                        className="input-dark w-full px-4 py-3 text-base"
-                        value={form.telegram} onChange={e => setForm({...form, telegram: e.target.value})} />
-                    </div>
-                    <button onClick={handleJoin} disabled={joining}
-                      className="w-full btn-gold py-4 rounded-xl text-lg font-bold mt-2">
-                      {joining ? '⏳ Qo\'shilmoqda...' : '🚀 Boshlash'}
+                    <button onClick={() => setShowJoin(false)}
+                      style={{background:'rgba(255,255,255,0.08)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:'50%', width:'36px', height:'36px', color:'rgba(255,255,255,0.6)', fontSize:'1rem', cursor:'pointer', flexShrink:0}}>
+                      ✕
                     </button>
                   </div>
 
-                  <p className="text-gray-500 text-xs text-center mt-4">
-                    Ma'lumotlaringiz faqat o'z qurilmangizda saqlanadi
+                  <div style={{marginBottom:'1rem'}}>
+                    <label style={{color:'rgba(255,255,255,0.7)', fontSize:'0.85rem', fontWeight:600, display:'block', marginBottom:'8px'}}>
+                      👤 To'liq ismingiz
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Masalan: Ahmad Karimov"
+                      value={form.name}
+                      onChange={e => setForm({...form, name: e.target.value})}
+                      style={{
+                        width:'100%', boxSizing:'border-box',
+                        background:'rgba(255,255,255,0.07)',
+                        border:'1px solid rgba(255,255,255,0.15)',
+                        borderRadius:'0.75rem',
+                        padding:'0.85rem 1rem',
+                        color:'white',
+                        fontSize:'1rem',
+                        outline:'none',
+                        fontFamily:'Cairo, sans-serif',
+                      }}
+                      onFocus={e => { e.target.style.borderColor='rgba(212,175,55,0.6)'; e.target.style.boxShadow='0 0 0 3px rgba(212,175,55,0.12)'; }}
+                      onBlur={e => { e.target.style.borderColor='rgba(255,255,255,0.15)'; e.target.style.boxShadow='none'; }}
+                    />
+                  </div>
+
+                  <div style={{marginBottom:'1.5rem'}}>
+                    <label style={{color:'rgba(255,255,255,0.7)', fontSize:'0.85rem', fontWeight:600, display:'block', marginBottom:'8px'}}>
+                      📱 Telegram username
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="@username"
+                      value={form.telegram}
+                      onChange={e => setForm({...form, telegram: e.target.value})}
+                      onKeyDown={e => e.key === 'Enter' && handleJoin()}
+                      style={{
+                        width:'100%', boxSizing:'border-box',
+                        background:'rgba(255,255,255,0.07)',
+                        border:'1px solid rgba(255,255,255,0.15)',
+                        borderRadius:'0.75rem',
+                        padding:'0.85rem 1rem',
+                        color:'white',
+                        fontSize:'1rem',
+                        outline:'none',
+                        fontFamily:'Cairo, sans-serif',
+                      }}
+                      onFocus={e => { e.target.style.borderColor='rgba(212,175,55,0.6)'; e.target.style.boxShadow='0 0 0 3px rgba(212,175,55,0.12)'; }}
+                      onBlur={e => { e.target.style.borderColor='rgba(255,255,255,0.15)'; e.target.style.boxShadow='none'; }}
+                    />
+                  </div>
+
+                  <button
+                    onClick={handleJoin}
+                    disabled={joining}
+                    style={{
+                      width:'100%',
+                      background: joining ? 'rgba(212,175,55,0.5)' : 'linear-gradient(135deg,#D4AF37,#F0D060)',
+                      color:'#030a06',
+                      border:'none',
+                      borderRadius:'0.875rem',
+                      padding:'1rem',
+                      fontSize:'1.1rem',
+                      fontWeight:700,
+                      cursor: joining ? 'not-allowed' : 'pointer',
+                      fontFamily:'Cairo, sans-serif',
+                      boxShadow: joining ? 'none' : '0 8px 25px rgba(212,175,55,0.35)',
+                      transition:'all 0.2s ease',
+                    }}>
+                    {joining ? '⏳ Qo\'shilmoqda...' : '🚀 Boshlash'}
+                  </button>
+
+                  <p style={{color:'rgba(255,255,255,0.3)', fontSize:'0.75rem', textAlign:'center', marginTop:'1rem'}}>
+                    🔒 Ma'lumotlaringiz faqat o'z qurilmangizda saqlanadi
                   </p>
                 </div>
               </div>
