@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Kunda 100 Sura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            amiri: ['Amiri', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+          },
+          colors: {
+            emerald: { 950: '#022c22' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Cairo', sans-serif; }
+    
+    .font-arabic { font-family: 'Amiri', serif; direction: rtl; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+
+    :root {
+      --gold: #D4AF37;
+      --gold-light: #F0D060;
+      --emerald-deep: #064e3b;
+      --glass-bg: rgba(255,255,255,0.05);
+      --glass-border: rgba(255,255,255,0.12);
+    }
+
+    body {
+      background: #030a06;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .light-mode body {
+      background: #f0fdf4;
+    }
+
+    /* Islamic geometric pattern background */
+    .geo-bg {
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(6,78,59,0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212,175,55,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 60% 80%, rgba(4,120,87,0.2) 0%, transparent 45%);
+    }
+
+    .islamic-pattern {
+      background-color: transparent;
+      background-image: 
+        repeating-linear-gradient(45deg, rgba(212,175,55,0.04) 0px, rgba(212,175,55,0.04) 1px, transparent 1px, transparent 50%),
+        repeating-linear-gradient(-45deg, rgba(212,175,55,0.04) 0px, rgba(212,175,55,0.04) 1px, transparent 1px, transparent 50%);
+      background-size: 30px 30px;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(212,175,55,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.1);
+    }
+
+    .glass-card-light {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 1.5rem;
+    }
+
+    .gold-text {
+      background: linear-gradient(135deg, #D4AF37, #F0D060, #D4AF37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gold-border {
+      border: 1px solid rgba(212,175,55,0.4);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #D4AF37, #F0D060);
+      color: #030a06;
+      font-weight: 700;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #F0D060, #D4AF37);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+    }
+
+    .btn-emerald {
+      background: linear-gradient(135deg, #064e3b, #065f46);
+      color: white;
+      border: 1px solid rgba(212,175,55,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-emerald:hover {
+      background: linear-gradient(135deg, #065f46, #047857);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(6,78,59,0.5);
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #064e3b, #059669, #D4AF37);
+      border-radius: 999px;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF37, #F0D060);
+      transition: width 0.3s ease;
+      border-radius: 999px;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .medal-gold { background: linear-gradient(135deg, #FFD700, #FFA500); }
+    .medal-silver { background: linear-gradient(135deg, #C0C0C0, #A8A8A8); }
+    .medal-bronze { background: linear-gradient(135deg, #CD7F32, #A0522D); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.3); }
+      50% { box-shadow: 0 0 40px rgba(212,175,55,0.6); }
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-fadeinup { animation: fadeInUp 0.6s ease forwards; }
+    .animate-pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+
+    .star-bg {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .geometric-ring {
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    /* Light mode overrides */
+    .light .glass-card {
+      background: rgba(255,255,255,0.8);
+      border-color: rgba(6,78,59,0.15);
+      color: #030a06;
+    }
+
+    .light .text-white { color: #064e3b !important; }
+    .light .text-gray-300 { color: #374151 !important; }
+    .light .text-gray-400 { color: #4b5563 !important; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #030a06; }
+    ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.4); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.7); }
+
+    .input-dark {
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      color: white !important;
+      border-radius: 0.75rem !important;
+      transition: all 0.3s ease;
+    }
+
+    .input-dark:focus {
+      border-color: rgba(212,175,55,0.5) !important;
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.1) !important;
+      outline: none !important;
+    }
+
+    .input-dark::placeholder { color: rgba(255,255,255,0.3) !important; }
+
+    .ornament {
+      display: inline-block;
+      color: #D4AF37;
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .trophy-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trophy-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(transparent, rgba(212,175,55,0.05), transparent 30%);
+      animation: spin-slow 8s linear infinite;
+    }
+
+    .surah-complete {
+      background: linear-gradient(135deg, rgba(6,78,59,0.4), rgba(5,150,105,0.2));
+      border-color: rgba(16,185,129,0.4) !important;
+    }
+
+    .table-row-hover {
+      transition: all 0.2s ease;
+    }
+    .table-row-hover:hover {
+      background: rgba(212,175,55,0.05) !important;
+    }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Notification toast */
+    .toast-success {
+      background: linear-gradient(135deg, #064e3b, #065f46);
+      border: 1px solid rgba(212,175,55,0.3);
+      color: white;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+    }
+
+    /* Section divider */
+    .gold-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div id="root"></div>
+  
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect, useCallback, useRef } = React;
+
+    // ===================== DATA =====================
+    const DEFAULT_SURAHS = [
+      {id:1,name:"Al-Fotiha",arabic:"الفاتحة",ayat:7,day:1},
+      {id:2,name:"Al-Falaq",arabic:"الفلق",ayat:5,day:2},
+      {id:3,name:"An-Nas",arabic:"الناس",ayat:6,day:3},
+      {id:4,name:"Al-Ixlos",arabic:"الإخلاص",ayat:4,day:4},
+      {id:5,name:"Al-Masad",arabic:"المسد",ayat:5,day:5},
+      {id:6,name:"An-Nasr",arabic:"النصر",ayat:3,day:6},
+      {id:7,name:"Al-Kofirun",arabic:"الكافرون",ayat:6,day:7},
+      {id:8,name:"Al-Kavsar",arabic:"الكوثر",ayat:3,day:8},
+      {id:9,name:"Al-Mo'un",arabic:"الماعون",ayat:7,day:9},
+      {id:10,name:"Quraysh",arabic:"قريش",ayat:4,day:10},
+      {id:11,name:"Al-Fil",arabic:"الفيل",ayat:5,day:11},
+      {id:12,name:"Al-Humaza",arabic:"الهمزة",ayat:9,day:12},
+      {id:13,name:"Al-Asr",arabic:"العصر",ayat:3,day:13},
+      {id:14,name:"At-Takasur",arabic:"التكاثر",ayat:8,day:14},
+      {id:15,name:"Al-Qori'a",arabic:"القارعة",ayat:11,day:15},
+      {id:16,name:"Al-Odiyot",arabic:"العاديات",ayat:11,day:16},
+      {id:17,name:"Az-Zalzala",arabic:"الزلزلة",ayat:8,day:17},
+      {id:18,name:"Al-Bayyina",arabic:"البينة",ayat:8,day:18},
+      {id:19,name:"Al-Qadr",arabic:"القدر",ayat:5,day:19},
+      {id:20,name:"Al-Alaq",arabic:"العلق",ayat:19,day:20},
+      {id:21,name:"At-Tin",arabic:"التين",ayat:8,day:21},
+      {id:22,name:"Ash-Sharh",arabic:"الشرح",ayat:8,day:22},
+      {id:23,name:"Ad-Duho",arabic:"الضحى",ayat:11,day:23},
+      {id:24,name:"Al-Layl",arabic:"الليل",ayat:21,day:24},
+      {id:25,name:"Ash-Shams",arabic:"الشمس",ayat:15,day:25},
+      {id:26,name:"Al-Balad",arabic:"البلد",ayat:20,day:26},
+      {id:27,name:"Al-Fajr",arabic:"الفجر",ayat:30,day:27},
+      {id:28,name:"Al-Goshiya",arabic:"الغاشية",ayat:26,day:28},
+      {id:29,name:"Al-A'lo",arabic:"الأعلى",ayat:19,day:29},
+      {id:30,name:"At-Toriq",arabic:"الطارق",ayat:17,day:30},
+      {id:31,name:"Al-Buruj",arabic:"البروج",ayat:22,day:31},
+      {id:32,name:"Al-Inshiqoq",arabic:"الانشقاق",ayat:25,day:32},
+      {id:33,name:"Al-Mutaffifin",arabic:"المطففين",ayat:36,day:33},
+      {id:34,name:"Al-Infitor",arabic:"الانفطار",ayat:19,day:34},
+      {id:35,name:"At-Takwir",arabic:"التكوير",ayat:29,day:35},
+      {id:36,name:"Abasa",arabic:"عبس",ayat:42,day:36},
+      {id:37,name:"An-Naziot",arabic:"النازعات",ayat:46,day:37},
+      {id:38,name:"An-Naba",arabic:"النبأ",ayat:40,day:38},
+      {id:39,name:"Al-Mursalot",arabic:"المرسلات",ayat:50,day:39},
+      {id:40,name:"Ad-Dahr",arabic:"الدهر",ayat:31,day:40},
+      {id:41,name:"Al-Qiyoma",arabic:"القيامة",ayat:40,day:41},
+      {id:42,name:"Al-Muddassir",arabic:"المدثر",ayat:56,day:42},
+      {id:43,name:"Al-Muzzammil",arabic:"المزمل",ayat:20,day:43},
+      {id:44,name:"Al-Jinn",arabic:"الجن",ayat:28,day:44},
+      {id:45,name:"Nuh",arabic:"نوح",ayat:28,day:45},
+      {id:46,name:"Al-Ma'arij",arabic:"المعارج",ayat:44,day:46},
+      {id:47,name:"Al-Haqqa",arabic:"الحاقة",ayat:52,day:47},
+      {id:48,name:"Al-Qalam",arabic:"القلم",ayat:52,day:48},
+      {id:49,name:"Al-Mulk",arabic:"الملك",ayat:30,day:49},
+      {id:50,name:"At-Tahrim",arabic:"التحريم",ayat:12,day:50},
+      {id:51,name:"At-Talaq",arabic:"الطلاق",ayat:12,day:51},
+      {id:52,name:"At-Tagobun",arabic:"التغابن",ayat:18,day:52},
+      {id:53,name:"Al-Munofiqun",arabic:"المنافقون",ayat:11,day:53},
+      {id:54,name:"Al-Jumu'a",arabic:"الجمعة",ayat:11,day:54},
+      {id:55,name:"As-Saff",arabic:"الصف",ayat:14,day:55},
+      {id:56,name:"Al-Mumtahana",arabic:"الممتحنة",ayat:13,day:56},
+      {id:57,name:"Al-Hashr",arabic:"الحشر",ayat:24,day:57},
+      {id:58,name:"Al-Mujodala",arabic:"المجادلة",ayat:22,day:58},
+      {id:59,name:"Al-Hadid",arabic:"الحديد",ayat:29,day:59},
+      {id:60,name:"Al-Voqia",arabic:"الواقعة",ayat:96,day:60},
+      {id:61,name:"Ar-Rahman",arabic:"الرحمن",ayat:78,day:61},
+      {id:62,name:"Al-Qamar",arabic:"القمر",ayat:55,day:62},
+      {id:63,name:"An-Najm",arabic:"النجم",ayat:62,day:63},
+      {id:64,name:"At-Tur",arabic:"الطور",ayat:49,day:64},
+      {id:65,name:"Az-Zoriyot",arabic:"الذاريات",ayat:60,day:65},
+      {id:66,name:"Qof",arabic:"ق",ayat:45,day:66},
+      {id:67,name:"Al-Hujurot",arabic:"الحجرات",ayat:18,day:67},
+      {id:68,name:"Al-Fath",arabic:"الفتح",ayat:29,day:68},
+      {id:69,name:"Muhammad",arabic:"محمد",ayat:38,day:69},
+      {id:70,name:"Al-Ahqof",arabic:"الأحقاف",ayat:35,day:70},
+      {id:71,name:"Al-Josiya",arabic:"الجاثية",ayat:37,day:71},
+      {id:72,name:"Ad-Duxon",arabic:"الدخان",ayat:59,day:72},
+      {id:73,name:"Az-Zuxruf",arabic:"الزخرف",ayat:89,day:73},
+      {id:74,name:"Ash-Shuro",arabic:"الشورى",ayat:53,day:74},
+      {id:75,name:"Fussilat",arabic:"فصلت",ayat:54,day:75},
+      {id:76,name:"Gofir",arabic:"غافر",ayat:85,day:76},
+      {id:77,name:"Az-Zumar",arabic:"الزمر",ayat:75,day:77},
+      {id:78,name:"Sod",arabic:"ص",ayat:88,day:78},
+      {id:79,name:"As-Soffot",arabic:"الصافات",ayat:182,day:79},
+      {id:80,name:"Yosin",arabic:"يس",ayat:83,day:80},
+      {id:81,name:"Fotir",arabic:"فاطر",ayat:45,day:81},
+      {id:82,name:"Saba",arabic:"سبأ",ayat:54,day:82},
+      {id:83,name:"Al-Ahzob",arabic:"الأحزاب",ayat:73,day:83},
+      {id:84,name:"As-Sajda",arabic:"السجدة",ayat:30,day:84},
+      {id:85,name:"Luqmon",arabic:"لقمان",ayat:34,day:85},
+      {id:86,name:"Ar-Rum",arabic:"الروم",ayat:60,day:86},
+      {id:87,name:"Al-Ankabut",arabic:"العنكبوت",ayat:69,day:87},
+      {id:88,name:"Al-Qasas",arabic:"القصص",ayat:88,day:88},
+      {id:89,name:"An-Naml",arabic:"النمل",ayat:93,day:89},
+      {id:90,name:"Ash-Shuaro",arabic:"الشعراء",ayat:227,day:90},
+      {id:91,name:"Al-Furqon",arabic:"الفرقان",ayat:77,day:91},
+      {id:92,name:"An-Nur",arabic:"النور",ayat:64,day:92},
+      {id:93,name:"Al-Mu'minun",arabic:"المؤمنون",ayat:118,day:93},
+      {id:94,name:"Al-Hajj",arabic:"الحج",ayat:78,day:94},
+      {id:95,name:"Al-Anbiyo",arabic:"الأنبياء",ayat:112,day:95},
+      {id:96,name:"To Ha",arabic:"طه",ayat:135,day:96},
+      {id:97,name:"Maryam",arabic:"مريم",ayat:98,day:97},
+      {id:98,name:"Al-Kahf",arabic:"الكهف",ayat:110,day:98},
+      {id:99,name:"Al-Isro",arabic:"الإسراء",ayat:111,day:99},
+      {id:100,name:"An-Nahl",arabic:"النحل",ayat:128,day:100},
+    ];
+
+    // ===================== STORAGE UTILS =====================
+    const storage = {
+      get: (key, def = null) => {
+        try {
+          const v = localStorage.getItem(key);
+          return v ? JSON.parse(v) : def;
+        } catch { return def; }
+      },
+      set: (key, val) => {
+        try { localStorage.setItem(key, JSON.stringify(val)); } catch {}
+      }
+    };
+
+    const initData = () => {
+      if (!storage.get('surahs')) storage.set('surahs', DEFAULT_SURAHS);
+      if (!storage.get('users')) storage.set('users', []);
+      if (!storage.get('winners')) storage.set('winners', []);
+      if (!storage.get('startDate')) storage.set('startDate', new Date().toISOString());
+    };
+
+    // ===================== COMPONENTS =====================
+
+    // Toast
+    const Toast = ({ message, onClose }) => {
+      useEffect(() => {
+        const t = setTimeout(onClose, 3000);
+        return () => clearTimeout(t);
+      }, []);
+      return (
+        <div className="fixed top-6 right-6 z-50 animate-fadeinup">
+          <div className="toast-success flex items-center gap-3 shadow-2xl">
+            <span className="text-2xl">✅</span>
+            <span>{message}</span>
+          </div>
+        </div>
+      );
+    };
+
+    // Geometric Ring Decoration
+    const GeometricDeco = () => (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="geometric-ring w-64 h-64 top-10 -right-10 opacity-20"></div>
+        <div className="geometric-ring w-40 h-40 top-20 -right-5 opacity-10"></div>
+        <div className="geometric-ring w-96 h-96 -bottom-20 -left-20 opacity-10"></div>
+        <div className="geometric-ring w-56 h-56 -bottom-10 -left-10 opacity-15"></div>
+        <svg className="absolute top-0 right-0 opacity-5 w-64 h-64" viewBox="0 0 200 200">
+          <polygon points="100,10 190,55 190,145 100,190 10,145 10,55" fill="none" stroke="#D4AF37" strokeWidth="0.5"/>
+          <polygon points="100,25 175,62 175,138 100,175 25,138 25,62" fill="none" stroke="#D4AF37" strokeWidth="0.5"/>
+          <polygon points="100,40 160,70 160,130 100,160 40,130 40,70" fill="none" stroke="#D4AF37" strokeWidth="0.5"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#D4AF37" strokeWidth="0.5"/>
+          <circle cx="100" cy="100" r="40" fill="none" stroke="#D4AF37" strokeWidth="0.5"/>
+        </svg>
+      </div>
+    );
+
+    // ===================== NAVBAR =====================
+    const Navbar = ({ page, setPage, currentUser, darkMode, setDarkMode }) => {
+      const [menuOpen, setMenuOpen] = useState(false);
+      const navItems = [
+        { id: 'home', label: 'Bosh sahifa', icon: '🕌' },
+        { id: 'daily', label: 'Kunlik Sura', icon: '📖' },
+        { id: 'leaderboard', label: 'Reyting', icon: '🏆' },
+        { id: 'winners', label: 'G\'oliblar', icon: '🌟' },
+      ];
+
+      return (
+        <nav className="fixed top-0 left-0 right-0 z-40 py-3 px-4 md:px-8"
+          style={{background: 'rgba(3,10,6,0.85)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(212,175,55,0.1)'}}>
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <button onClick={() => setPage('home')} className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center animate-pulse-gold" 
+                style={{background: 'linear-gradient(135deg, #064e3b, #D4AF37)'}}>
+                <span className="text-xl">☪️</span>
+              </div>
+              <div className="hidden sm:block">
+                <p className="font-cinzel font-bold gold-text text-sm leading-tight">100 Kunda</p>
+                <p className="font-cinzel font-bold gold-text text-xs opacity-80">100 Sura</p>
+              </div>
+            </button>
+
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map(item => (
+                <button key={item.id} onClick={() => setPage(item.id)}
+                  className={`nav-link text-sm font-semibold transition-colors ${page === item.id ? 'active gold-text' : 'text-gray-300 hover:text-white'}`}>
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3">
+              <button onClick={() => setDarkMode(!darkMode)}
+                className="w-9 h-9 rounded-full flex items-center justify-center transition-all"
+                style={{background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)'}}>
+                <span>{darkMode ? '☀️' : '🌙'}</span>
+              </button>
+
+              {currentUser ? (
+                <button onClick={() => setPage('daily')}
+                  className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold"
+                  style={{background: 'linear-gradient(135deg, #064e3b, #065f46)', border: '1px solid rgba(212,175,55,0.3)'}}>
+                  <span>👤</span>
+                  <span className="text-white">{currentUser.name.split(' ')[0]}</span>
+                </button>
+              ) : (
+                <button onClick={() => setPage('home')}
+                  className="hidden md:block px-4 py-2 rounded-full text-sm font-bold btn-gold">
+                  Qo'shilish
+                </button>
+              )}
+
+              <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden w-9 h-9 rounded-full flex items-center justify-center"
+                style={{background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)'}}>
+                <span className="text-lg">{menuOpen ? '✕' : '☰'}</span>
+              </button>
+            </div>
+          </div>
+
+          {menuOpen && (
+            <div className="md:hidden mt-3 pb-3 border-t border-white border-opacity-10 pt-3">
+              {navItems.map(item => (
+                <button key={item.id} onClick={() => { setPage(item.id); setMenuOpen(false); }}
+                  className={`w-full text-left px-4 py-3 flex items-center gap-3 rounded-xl mb-1 transition-all ${page === item.id ? 'bg-emerald-900 bg-opacity-50 gold-text' : 'text-gray-300'}`}>
+                  <span>{item.icon}</span>
+                  <span className="font-semibold">{item.label}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </nav>
+      );
+    };
+
+    // ===================== HOME PAGE =====================
+    const HomePage = ({ setPage, currentUser, setCurrentUser, toast }) => {
+      const [showJoin, setShowJoin] = useState(false);
+      const [form, setForm] = useState({ name: '', telegram: '' });
+      const [joining, setJoining] = useState(false);
+      const users = storage.get('users', []);
+
+      const handleJoin = () => {
+        if (!form.name.trim() || !form.telegram.trim()) {
+          toast('Iltimos, barcha maydonlarni to\'ldiring!');
+          return;
+        }
+        const tg = form.telegram.startsWith('@') ? form.telegram : '@' + form.telegram;
+        const existing = users.find(u => u.telegram === tg);
+        if (existing) {
+          setCurrentUser(existing);
+          storage.set('currentUser', existing);
+          toast('Xush kelibsiz, ' + existing.name + '!');
+          setPage('daily');
+          return;
+        }
+        const newUser = {
+          id: Date.now(),
+          name: form.name.trim(),
+          telegram: tg,
+          joinDate: new Date().toISOString(),
+          completed: [],
+          totalCompleted: 0
+        };
+        const updated = [...users, newUser];
+        storage.set('users', updated);
+        storage.set('currentUser', newUser);
+        setCurrentUser(newUser);
+        setJoining(true);
+        setTimeout(() => {
+          setJoining(false);
+          toast('Tabriklaymiz! Challenge boshlandi! 🎉');
+          setPage('daily');
+        }, 1500);
+      };
+
+      const prizes = [
+        { rank: 1, emoji: '🥇', title: '1-o\'rin', prize: '3 oy Telegram Premium', color: 'from-yellow-400 to-amber-500' },
+        { rank: 2, emoji: '🥈', title: '2-o\'rin', prize: '1 oy Telegram Premium', color: 'from-gray-300 to-gray-400' },
+        { rank: 3, emoji: '🥉', title: '3-o\'rin', prize: '50 000 so\'m', color: 'from-amber-600 to-amber-700' },
+      ];
+
+      return (
+        <div className="min-h-screen geo-bg islamic-pattern relative pt-20">
+          <GeometricDeco />
+          
+          {/* Hero */}
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 relative">
+            <div className="text-center mb-16 animate-fadeinup">
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <div className="w-28 h-28 rounded-full flex items-center justify-center text-6xl animate-float"
+                    style={{background: 'linear-gradient(135deg, rgba(6,78,59,0.6), rgba(212,175,55,0.2))', border: '2px solid rgba(212,175,55,0.4)', boxShadow: '0 0 60px rgba(212,175,55,0.2)'}}>
+                    ☪️
+                  </div>
+                  <div className="absolute -inset-4 rounded-full animate-spin-slow" style={{border: '1px dashed rgba(212,175,55,0.2)'}}></div>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <span className="ornament">✦</span>
+                <span className="mx-3 text-gray-400 text-sm uppercase tracking-widest font-semibold">Quron yodlash musobaqasi</span>
+                <span className="ornament">✦</span>
+              </div>
+
+              <h1 className="font-cinzel text-5xl md:text-7xl lg:text-8xl font-bold mb-4 gold-text leading-tight">
+                100 Kunda
+              </h1>
+              <h1 className="font-cinzel text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+                100 Sura
+              </h1>
+
+              <p className="font-arabic text-2xl md:text-3xl text-amber-300 mb-4 opacity-80">
+                بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+              </p>
+
+              <div className="gold-divider my-6 max-w-md mx-auto"></div>
+
+              <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-3">
+                100 kun davomida Quronning <span className="text-emerald-400 font-bold">100 surasini</span> yodlash 
+                bo'yicha ulug'vor musobaqa. Har kuni bir sura, har sura bir zafar.
+              </p>
+              <p className="text-gray-400 text-base max-w-xl mx-auto">
+                O'z bilimingizni oshiring, ruhingizni yuksaltiring va ajoyib mukofotlar yutib oling!
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                <button onClick={() => currentUser ? setPage('daily') : setShowJoin(true)}
+                  className="btn-gold px-10 py-4 rounded-2xl text-lg font-bold shadow-2xl">
+                  {currentUser ? '📖 Davom ettirish' : '🚀 Challengega qo\'shilish'}
+                </button>
+                <button onClick={() => setPage('leaderboard')}
+                  className="btn-emerald px-8 py-4 rounded-2xl text-lg font-semibold text-white">
+                  🏆 Reytingni ko'rish
+                </button>
+              </div>
+
+              <div className="mt-8 flex items-center justify-center gap-2">
+                <div className="flex -space-x-2">
+                  {['🧑', '👩', '👨', '🧕', '👦'].map((e,i) => (
+                    <div key={i} className="w-9 h-9 rounded-full flex items-center justify-center border-2 border-emerald-900 text-lg"
+                      style={{background: 'linear-gradient(135deg, #064e3b, #065f46)'}}>
+                      {e}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-gray-400 text-sm ml-2">
+                  <span className="text-white font-bold">{users.length}</span> kishi allaqachon qo'shilgan
+                </p>
+              </div>
+            </div>
+
+            {/* Join Form Modal */}
+            {showJoin && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onClick={() => setShowJoin(false)}>
+                <div className="glass-card p-8 max-w-md w-full relative" onClick={e => e.stopPropagation()}>
+                  <GeometricDeco />
+                  <button onClick={() => setShowJoin(false)} className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">✕</button>
+                  
+                  <div className="text-center mb-6">
+                    <div className="text-5xl mb-3">☪️</div>
+                    <h2 className="font-cinzel text-2xl gold-text font-bold mb-1">Challengega qo'shiling</h2>
+                    <p className="text-gray-400 text-sm">100 kunlik yodlash safarin boshlang</p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <label className="text-gray-300 text-sm font-semibold mb-2 block">👤 To'liq ismingiz</label>
+                      <input type="text" placeholder="Masalan: Ahmad Karimov"
+                        className="input-dark w-full px-4 py-3 text-base"
+                        value={form.name} onChange={e => setForm({...form, name: e.target.value})} />
+                    </div>
+                    <div>
+                      <label className="text-gray-300 text-sm font-semibold mb-2 block">📱 Telegram username</label>
+                      <input type="text" placeholder="@username"
+                        className="input-dark w-full px-4 py-3 text-base"
+                        value={form.telegram} onChange={e => setForm({...form, telegram: e.target.value})} />
+                    </div>
+                    <button onClick={handleJoin} disabled={joining}
+                      className="w-full btn-gold py-4 rounded-xl text-lg font-bold mt-2">
+                      {joining ? '⏳ Qo\'shilmoqda...' : '🚀 Boshlash'}
+                    </button>
+                  </div>
+
+                  <p className="text-gray-500 text-xs text-center mt-4">
+                    Ma'lumotlaringiz faqat o'z qurilmangizda saqlanadi
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Prizes */}
+            <div className="mb-16">
+              <div className="text-center mb-10">
+                <span className="ornament">✦</span>
+                <h2 className="inline-block mx-4 font-cinzel text-3xl md:text-4xl font-bold text-white">Mukofotlar</h2>
+                <span className="ornament">✦</span>
+                <div className="gold-divider mt-4 max-w-xs mx-auto"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {prizes.map((p, i) => (
+                  <div key={i} className={`glass-card p-8 text-center trophy-card stagger-${i+1} animate-fadeinup`}
+                    style={{opacity: 0}}>
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${p.color} mx-auto mb-4 flex items-center justify-center text-4xl shadow-2xl`}>
+                      {p.emoji}
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-white mb-2">{p.title}</h3>
+                    <p className="text-2xl font-bold gold-text">{p.prize}</p>
+                    <div className="mt-4 px-4 py-2 rounded-full text-xs font-semibold text-gray-400 border border-white border-opacity-10 inline-block">
+                      Eng ko'p sura yodlaganlar
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* How it works */}
+            <div className="mb-16">
+              <div className="text-center mb-10">
+                <h2 className="font-cinzel text-3xl font-bold text-white">Qanday ishlaydi?</h2>
+                <div className="gold-divider mt-4 max-w-xs mx-auto"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {n:'01', icon:'📝', t:'Ro\'yxatdan o\'ting', d:'Ismingiz va Telegram usernamengizni kiriting'},
+                  {n:'02', icon:'📖', t:'Kunlik surani oling', d:'Har kuni yangi sura tayinlanadi'},
+                  {n:'03', icon:'✅', t:'Yodladim deb belgilang', d:'Surani yodlaganingizdan keyin tugmani bosing'},
+                  {n:'04', icon:'🏆', t:'Mukofot yutib oling', d:'Eng ko\'p sura yodlaganlar g\'olib bo\'ladi'},
+                ].map((s,i) => (
+                  <div key={i} className={`glass-card p-6 stagger-${i+1} animate-fadeinup`} style={{opacity:0}}>
+                    <div className="text-4xl mb-4">{s.icon}</div>
+                    <div className="text-5xl font-cinzel font-black opacity-10 text-white mb-2">{s.n}</div>
+                    <h3 className="text-white font-bold text-lg mb-2">{s.t}</h3>
+                    <p className="text-gray-400 text-sm">{s.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Admin access */}
+            <div className="text-center">
+              <button onClick={() => setPage('admin')}
+                className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+                ⚙️ Admin
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // ===================== DAILY PAGE =====================
+    const DailyPage = ({ currentUser, setCurrentUser, toast }) => {
+      const [surahs] = useState(() => storage.get('surahs', DEFAULT_SURAHS));
+      const startDate = storage.get('startDate', new Date().toISOString());
+      const daysPassed = Math.min(Math.floor((Date.now() - new Date(startDate)) / 86400000) + 1, 100);
+      const todaySurah = surahs.find(s => s.day === daysPassed) || surahs[0];
+      const users = storage.get('users', []);
+      const user = currentUser ? users.find(u => u.id === currentUser.id) : null;
+      const completed = user ? user.completed || [] : [];
+      const isCompleted = completed.includes(todaySurah?.id);
+
+      const markComplete = () => {
+        if (!user || isCompleted) return;
+        const updatedCompleted = [...completed, todaySurah.id];
+        const updatedUsers = users.map(u => u.id === user.id 
+          ? {...u, completed: updatedCompleted, totalCompleted: updatedCompleted.length} 
+          : u);
+        storage.set('users', updatedUsers);
+        const updatedUser = {...currentUser, completed: updatedCompleted, totalCompleted: updatedCompleted.length};
+        storage.set('currentUser', updatedUser);
+        setCurrentUser(updatedUser);
+        toast('Mashallah! ' + todaySurah.name + ' surasi yodlandi! 🌟');
+      };
+
+      const progress = (completed.length / 100) * 100;
+
+      if (!currentUser) {
+        return (
+          <div className="min-h-screen geo-bg islamic-pattern flex items-center justify-center pt-20">
+            <div className="glass-card p-12 text-center max-w-md">
+              <div className="text-6xl mb-6">🔒</div>
+              <h2 className="text-2xl font-bold text-white mb-3">Ro'yxatdan o'ting</h2>
+              <p className="text-gray-400">Kunlik surani ko'rish uchun challengega qo'shiling</p>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div className="min-h-screen geo-bg islamic-pattern pt-24 pb-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            
+            {/* Header */}
+            <div className="text-center mb-8 animate-fadeinup">
+              <p className="text-gray-400 text-sm font-semibold uppercase tracking-widest mb-2">
+                <span className="ornament text-base">✦</span>
+                <span className="mx-2">Bugungi vazifa</span>
+                <span className="ornament text-base">✦</span>
+              </p>
+              <h1 className="font-cinzel text-3xl md:text-4xl font-bold text-white">
+                Kun: <span className="gold-text">{daysPassed}</span> / 100
+              </h1>
+            </div>
+
+            {/* Progress Card */}
+            <div className="glass-card p-6 mb-6 animate-fadeinup stagger-1" style={{opacity:0}}>
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <p className="text-gray-400 text-sm">Umumiy progress</p>
+                  <p className="text-2xl font-bold text-white">{completed.length} <span className="text-gray-400 text-lg">/ 100 sura</span></p>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-400 text-sm">Foiz</p>
+                  <p className="text-3xl font-bold gold-text">{Math.round(progress)}%</p>
+                </div>
+              </div>
+              <div className="h-3 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                <div className="progress-bar h-full" style={{width: progress + '%'}}></div>
+              </div>
+              <div className="flex justify-between mt-2">
+                <span className="text-xs text-gray-500">Boshlandi</span>
+                <span className="text-xs text-gray-500">{100 - completed.length} sura qoldi</span>
+              </div>
+            </div>
+
+            {/* Today's Surah Card */}
+            <div className="glass-card p-8 mb-6 text-center animate-fadeinup stagger-2" 
+              style={{opacity:0, border: isCompleted ? '1px solid rgba(16,185,129,0.4)' : '1px solid rgba(255,255,255,0.08)'}}>
+              <GeometricDeco />
+              
+              {isCompleted && (
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-sm font-bold"
+                  style={{background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)', color: '#10b981'}}>
+                  ✅ Bugun yodlandi!
+                </div>
+              )}
+
+              <p className="font-arabic text-5xl md:text-6xl text-amber-300 mb-4 opacity-90">{todaySurah?.arabic}</p>
+              <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-white mb-2">{todaySurah?.name}</h2>
+              <p className="text-gray-400 mb-1">{todaySurah?.ayat} oyat</p>
+              
+              <div className="flex items-center justify-center gap-6 my-6">
+                <div className="text-center">
+                  <p className="text-2xl font-bold gold-text">{todaySurah?.day}</p>
+                  <p className="text-gray-500 text-xs">Kun raqami</p>
+                </div>
+                <div className="w-px h-12 bg-white bg-opacity-10"></div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-white">{todaySurah?.ayat}</p>
+                  <p className="text-gray-500 text-xs">Oyatlar</p>
+                </div>
+                <div className="w-px h-12 bg-white bg-opacity-10"></div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-emerald-400">{completed.length}</p>
+                  <p className="text-gray-500 text-xs">Yodlangani</p>
+                </div>
+              </div>
+
+              {!isCompleted ? (
+                <button onClick={markComplete}
+                  className="btn-gold px-12 py-4 rounded-2xl text-xl font-bold shadow-2xl">
+                  📖 Yodladim!
+                </button>
+              ) : (
+                <div className="py-3 px-8 rounded-2xl text-base font-bold text-emerald-400 inline-block"
+                  style={{background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)'}}>
+                  🌟 Mashallah! Ertaga davom eting
+                </div>
+              )}
+            </div>
+
+            {/* Completed Surahs */}
+            <div className="glass-card p-6 animate-fadeinup stagger-3" style={{opacity:0}}>
+              <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                <span>✅</span> Yodlangan suralar ({completed.length})
+              </h3>
+              {completed.length === 0 ? (
+                <p className="text-gray-500 text-center py-6">Hali hech qanday sura yodlanmagan</p>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                  {surahs.filter(s => completed.includes(s.id)).map(s => (
+                    <div key={s.id} className="surah-complete px-3 py-2 rounded-xl text-center border border-white border-opacity-5">
+                      <p className="text-xs text-emerald-400 font-semibold">{s.name}</p>
+                      <p className="text-xs text-gray-500">Kun {s.day}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // ===================== LEADERBOARD =====================
+    const LeaderboardPage = () => {
+      const users = storage.get('users', []).sort((a,b) => (b.totalCompleted||0) - (a.totalCompleted||0));
+
+      const medals = ['🥇','🥈','🥉'];
+      const medalClasses = ['medal-gold','medal-silver','medal-bronze'];
+
+      return (
+        <div className="min-h-screen geo-bg islamic-pattern pt-24 pb-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            
+            <div className="text-center mb-10 animate-fadeinup">
+              <span className="ornament">✦</span>
+              <h1 className="inline-block mx-4 font-cinzel text-4xl md:text-5xl font-bold gold-text">Reyting</h1>
+              <span className="ornament">✦</span>
+              <p className="text-gray-400 mt-3">Eng ko'p sura yodlaganlar</p>
+              <div className="gold-divider mt-4 max-w-xs mx-auto"></div>
+            </div>
+
+            {/* Top 3 podium */}
+            {users.length >= 3 && (
+              <div className="flex items-end justify-center gap-4 mb-10">
+                {[users[1], users[0], users[2]].map((u, i) => {
+                  const realRank = i === 0 ? 2 : i === 1 ? 1 : 3;
+                  const heights = ['h-32','h-40','h-28'];
+                  return (
+                    <div key={u.id} className={`glass-card p-4 flex flex-col items-center justify-end ${heights[i]} w-28 md:w-36 transition-all`}>
+                      <div className={`w-12 h-12 rounded-full ${medalClasses[realRank-1]} flex items-center justify-center text-2xl mb-2`}>
+                        {medals[realRank-1]}
+                      </div>
+                      <p className="text-white font-bold text-xs md:text-sm text-center leading-tight">{u.name.split(' ')[0]}</p>
+                      <p className="gold-text font-bold text-lg">{u.totalCompleted || 0}</p>
+                      <p className="text-gray-500 text-xs">sura</p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Table */}
+            <div className="glass-card overflow-hidden animate-fadeinup stagger-2" style={{opacity:0}}>
+              {users.length === 0 ? (
+                <div className="text-center py-20">
+                  <div className="text-6xl mb-4">🕌</div>
+                  <h3 className="text-xl font-bold text-white mb-2">Hali hech kim qatnashmagan</h3>
+                  <p className="text-gray-400">Birinchi bo'ling!</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr style={{background: 'rgba(212,175,55,0.08)', borderBottom: '1px solid rgba(212,175,55,0.15)'}}>
+                        <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">#</th>
+                        <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">Ism</th>
+                        <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm hidden sm:table-cell">Telegram</th>
+                        <th className="text-right px-6 py-4 text-gray-400 font-semibold text-sm">Suralar</th>
+                        <th className="text-right px-6 py-4 text-gray-400 font-semibold text-sm hidden md:table-cell">Progress</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {users.map((u, i) => (
+                        <tr key={u.id} className="table-row-hover border-b border-white border-opacity-5">
+                          <td className="px-6 py-4">
+                            {i < 3 ? (
+                              <span className={`w-8 h-8 rounded-full ${medalClasses[i]} flex items-center justify-center text-lg`}>{medals[i]}</span>
+                            ) : (
+                              <span className="text-gray-400 font-bold w-8 text-center block">{i+1}</span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4">
+                            <p className="text-white font-semibold">{u.name}</p>
+                            <p className="text-gray-500 text-xs sm:hidden">{u.telegram}</p>
+                          </td>
+                          <td className="px-6 py-4 hidden sm:table-cell">
+                            <span className="text-emerald-400 font-medium">{u.telegram}</span>
+                          </td>
+                          <td className="px-6 py-4 text-right">
+                            <span className="gold-text font-bold text-lg">{u.totalCompleted || 0}</span>
+                            <span className="text-gray-500 text-sm"> / 100</span>
+                          </td>
+                          <td className="px-6 py-4 hidden md:table-cell">
+                            <div className="flex items-center gap-2 justify-end">
+                              <div className="w-24 h-2 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                                <div className="progress-bar h-full" style={{width: ((u.totalCompleted||0)/100*100)+'%'}}></div>
+                              </div>
+                              <span className="text-gray-400 text-xs w-8">{Math.round((u.totalCompleted||0))}%</span>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // ===================== WINNERS PAGE =====================
+    const WinnersPage = () => {
+      const winners = storage.get('winners', []);
+
+      const rankData = [
+        {rank: 1, emoji: '🥇', color: 'from-yellow-400 to-amber-500', title: 'Birinchi o\'rin', prize: '3 oy Telegram Premium'},
+        {rank: 2, emoji: '🥈', color: 'from-gray-300 to-gray-400', title: 'Ikkinchi o\'rin', prize: '1 oy Telegram Premium'},
+        {rank: 3, emoji: '🥉', color: 'from-amber-600 to-amber-700', title: 'Uchinchi o\'rin', prize: '50 000 so\'m'},
+      ];
+
+      return (
+        <div className="min-h-screen geo-bg islamic-pattern pt-24 pb-12 px-4">
+          <div className="max-w-5xl mx-auto">
+            
+            <div className="text-center mb-12 animate-fadeinup">
+              <span className="ornament">✦</span>
+              <h1 className="inline-block mx-4 font-cinzel text-4xl md:text-5xl font-bold gold-text">G'oliblar</h1>
+              <span className="ornament">✦</span>
+              <p className="text-gray-400 mt-3">Challenge g'oliblari va mukofotlar</p>
+              <div className="gold-divider mt-4 max-w-xs mx-auto"></div>
+            </div>
+
+            {winners.length === 0 ? (
+              <div className="glass-card p-16 text-center animate-fadeinup stagger-1" style={{opacity:0}}>
+                <GeometricDeco />
+                <div className="text-7xl mb-6 animate-float">🏆</div>
+                <h2 className="font-cinzel text-3xl font-bold text-white mb-4">Hali g'oliblar aniqlanmagan</h2>
+                <p className="text-gray-400 text-lg max-w-md mx-auto">
+                  Challenge tugagandan so'ng admin g'oliblarni belgilaydi. 
+                  Qatnashing va g'olib bo'ling!
+                </p>
+                <div className="mt-8 flex justify-center gap-4 text-4xl">
+                  <span className="animate-float" style={{animationDelay:'0s'}}>🥇</span>
+                  <span className="animate-float" style={{animationDelay:'0.5s'}}>🥈</span>
+                  <span className="animate-float" style={{animationDelay:'1s'}}>🥉</span>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {winners.map((w, i) => {
+                  const rd = rankData[i] || rankData[2];
+                  return (
+                    <div key={i} className={`glass-card p-8 trophy-card animate-fadeinup stagger-${i+1}`} style={{opacity:0}}>
+                      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                        <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${rd.color} flex items-center justify-center text-5xl flex-shrink-0 shadow-2xl`}>
+                          {rd.emoji}
+                        </div>
+                        <div className="flex-1 text-center md:text-left">
+                          <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider">{rd.title}</p>
+                          <h2 className="font-cinzel text-3xl font-bold text-white mt-1">{w.name}</h2>
+                          <p className="text-emerald-400 font-semibold text-lg mt-1">{w.telegram}</p>
+                          <div className="flex items-center gap-4 mt-3 justify-center md:justify-start">
+                            <div className="px-4 py-2 rounded-full text-sm font-bold"
+                              style={{background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', color: '#D4AF37'}}>
+                              🏅 {w.totalCompleted || 0} sura yodlangan
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-gray-400 text-sm mb-1">Mukofot</p>
+                          <p className="font-bold text-white text-xl">{rd.prize}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    };
+
+    // ===================== ADMIN PAGE =====================
+    const AdminPage = ({ setPage }) => {
+      const [loggedIn, setLoggedIn] = useState(() => sessionStorage.getItem('adminAuth') === 'true');
+      const [loginForm, setLoginForm] = useState({ username: '', password: '' });
+      const [loginError, setLoginError] = useState('');
+      const [activeTab, setActiveTab] = useState('dashboard');
+      const [users, setUsers] = useState(() => storage.get('users', []));
+      const [surahs, setSurahs] = useState(() => storage.get('surahs', DEFAULT_SURAHS));
+      const [winners, setWinners] = useState(() => storage.get('winners', []));
+      const [editSurah, setEditSurah] = useState(null);
+      const [toast, setToast] = useState('');
+
+      const showToast = (msg) => { setToast(msg); setTimeout(() => setToast(''), 3000); };
+
+      const handleLogin = () => {
+        if (loginForm.username === 'admin' && loginForm.password === '12345') {
+          sessionStorage.setItem('adminAuth', 'true');
+          setLoggedIn(true);
+        } else {
+          setLoginError('Noto\'g\'ri login yoki parol!');
+        }
+      };
+
+      const handleLogout = () => {
+        sessionStorage.removeItem('adminAuth');
+        setLoggedIn(false);
+      };
+
+      const refreshUsers = () => { const u = storage.get('users',[]); setUsers(u); };
+      const deleteUser = (id) => {
+        const updated = users.filter(u => u.id !== id);
+        storage.set('users', updated);
+        setUsers(updated);
+        showToast('Foydalanuvchi o\'chirildi');
+      };
+
+      const saveSurah = () => {
+        if (!editSurah) return;
+        const updated = surahs.map(s => s.id === editSurah.id ? editSurah : s);
+        storage.set('surahs', updated);
+        setSurahs(updated);
+        setEditSurah(null);
+        showToast('Sura saqlandi!');
+      };
+
+      const addWinner = (user) => {
+        if (winners.length >= 3) { showToast('Maksimum 3 g\'olib belgilanishi mumkin'); return; }
+        if (winners.find(w => w.id === user.id)) { showToast('Bu foydalanuvchi allaqachon qo\'shilgan'); return; }
+        const updated = [...winners, user];
+        storage.set('winners', updated);
+        setWinners(updated);
+        showToast(user.name + ' g\'olib sifatida belgilandi! 🏆');
+      };
+
+      const removeWinner = (id) => {
+        const updated = winners.filter(w => w.id !== id);
+        storage.set('winners', updated);
+        setWinners(updated);
+        showToast('G\'olib ro\'yxatdan chiqarildi');
+      };
+
+      const totalCompleted = users.reduce((s,u) => s + (u.totalCompleted||0), 0);
+
+      if (!loggedIn) {
+        return (
+          <div className="min-h-screen geo-bg islamic-pattern flex items-center justify-center pt-20 px-4">
+            <div className="glass-card p-10 max-w-md w-full relative">
+              <GeometricDeco />
+              <div className="text-center mb-8">
+                <div className="text-5xl mb-4">⚙️</div>
+                <h2 className="font-cinzel text-2xl font-bold text-white">Admin Panel</h2>
+                <p className="text-gray-400 text-sm mt-2">Kirish ma'lumotlarini kiriting</p>
+              </div>
+              {loginError && (
+                <div className="bg-red-900 bg-opacity-30 border border-red-500 border-opacity-30 rounded-xl p-3 mb-4 text-center text-red-400 text-sm">
+                  {loginError}
+                </div>
+              )}
+              <div className="space-y-4">
+                <input type="text" placeholder="Login" className="input-dark w-full px-4 py-3"
+                  value={loginForm.username} onChange={e => setLoginForm({...loginForm, username: e.target.value})} />
+                <input type="password" placeholder="Parol" className="input-dark w-full px-4 py-3"
+                  value={loginForm.password} onChange={e => setLoginForm({...loginForm, password: e.target.value})} 
+                  onKeyDown={e => e.key === 'Enter' && handleLogin()} />
+                <button onClick={handleLogin} className="btn-gold w-full py-3 rounded-xl font-bold text-lg">Kirish</button>
+                <button onClick={() => setPage('home')} className="w-full py-3 text-gray-400 hover:text-white transition-colors text-sm">← Bosh sahifaga qaytish</button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      const tabs = [
+        {id:'dashboard', label:'Dashboard', icon:'📊'},
+        {id:'users', label:'Foydalanuvchilar', icon:'👥'},
+        {id:'surahs', label:'Suralar', icon:'📖'},
+        {id:'winners', label:'G\'oliblar', icon:'🏆'},
+      ];
+
+      return (
+        <div className="min-h-screen geo-bg islamic-pattern pt-20 pb-12">
+          {toast && <Toast message={toast} onClose={() => setToast('')} />}
+          
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            
+            {/* Admin Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h1 className="font-cinzel text-3xl font-bold gold-text">Admin Panel</h1>
+                <p className="text-gray-400 text-sm mt-1">100 Kunda 100 Sura boshqaruvi</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <button onClick={refreshUsers} className="btn-emerald px-4 py-2 rounded-xl text-sm text-white font-semibold">
+                  🔄 Yangilash
+                </button>
+                <button onClick={handleLogout} className="px-4 py-2 rounded-xl text-sm font-semibold text-red-400 border border-red-400 border-opacity-30 hover:bg-red-900 hover:bg-opacity-20 transition-all">
+                  Chiqish
+                </button>
+              </div>
+            </div>
+
+            {/* Tabs */}
+            <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
+              {tabs.map(t => (
+                <button key={t.id} onClick={() => setActiveTab(t.id)}
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold whitespace-nowrap transition-all ${activeTab === t.id ? 'btn-gold' : 'text-gray-400 border border-white border-opacity-10 hover:border-opacity-20 hover:text-white'}`}>
+                  <span>{t.icon}</span> {t.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Dashboard Tab */}
+            {activeTab === 'dashboard' && (
+              <div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                  {[
+                    {label:'Jami qatnashchilar', val: users.length, icon:'👥', color:'from-emerald-900 to-emerald-800'},
+                    {label:'Faol foydalanuvchilar', val: users.filter(u => (u.totalCompleted||0)>0).length, icon:'📖', color:'from-amber-900 to-amber-800'},
+                    {label:'Jami yodlangan suralar', val: totalCompleted, icon:'✅', color:'from-blue-900 to-blue-800'},
+                  ].map((s,i) => (
+                    <div key={i} className="glass-card p-6">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center text-2xl mb-4`}>
+                        {s.icon}
+                      </div>
+                      <p className="text-gray-400 text-sm">{s.label}</p>
+                      <p className="text-4xl font-bold gold-text mt-1">{s.val}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="glass-card p-6">
+                  <h3 className="text-white font-bold text-lg mb-4">So'nggi qatnashchilar</h3>
+                  {users.length === 0 ? (
+                    <p className="text-gray-500 text-center py-8">Hali hech kim qatnashmagan</p>
+                  ) : (
+                    <div className="space-y-3">
+                      {users.slice(-5).reverse().map(u => (
+                        <div key={u.id} className="flex items-center justify-between p-4 rounded-xl" style={{background:'rgba(255,255,255,0.04)'}}>
+                          <div>
+                            <p className="text-white font-semibold">{u.name}</p>
+                            <p className="text-emerald-400 text-sm">{u.telegram}</p>
+                          </div>
+                          <div className="text-right">
+                            <p className="gold-text font-bold">{u.totalCompleted||0} / 100</p>
+                            <p className="text-gray-500 text-xs">{new Date(u.joinDate).toLocaleDateString('uz')}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Users Tab */}
+            {activeTab === 'users' && (
+              <div className="glass-card overflow-hidden">
+                <div className="p-6 border-b border-white border-opacity-10">
+                  <h3 className="text-white font-bold text-lg">Foydalanuvchilar ({users.length})</h3>
+                </div>
+                {users.length === 0 ? (
+                  <div className="text-center py-16">
+                    <div className="text-5xl mb-4">👥</div>
+                    <p className="text-gray-400">Hali hech kim qatnashmagan</p>
+                  </div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr style={{background:'rgba(255,255,255,0.04)'}}>
+                          <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">#</th>
+                          <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">Ism</th>
+                          <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">Telegram</th>
+                          <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">Progress</th>
+                          <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">Sana</th>
+                          <th className="text-left px-6 py-4 text-gray-400 font-semibold text-sm">Amal</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {users.map((u, i) => (
+                          <tr key={u.id} className="table-row-hover border-b border-white border-opacity-5">
+                            <td className="px-6 py-4 text-gray-400">{i+1}</td>
+                            <td className="px-6 py-4 text-white font-semibold">{u.name}</td>
+                            <td className="px-6 py-4 text-emerald-400">{u.telegram}</td>
+                            <td className="px-6 py-4">
+                              <div className="flex items-center gap-2">
+                                <div className="w-20 h-2 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                                  <div className="progress-bar h-full" style={{width:((u.totalCompleted||0)+'%')}}></div>
+                                </div>
+                                <span className="gold-text text-sm font-bold">{u.totalCompleted||0}/100</span>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 text-gray-400 text-sm">{new Date(u.joinDate).toLocaleDateString('uz-UZ')}</td>
+                            <td className="px-6 py-4">
+                              <button onClick={() => deleteUser(u.id)} className="text-red-400 hover:text-red-300 text-sm transition-colors">
+                                🗑 O'chirish
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Surahs Tab */}
+            {activeTab === 'surahs' && (
+              <div>
+                {editSurah && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onClick={() => setEditSurah(null)}>
+                    <div className="glass-card p-8 max-w-md w-full" onClick={e => e.stopPropagation()}>
+                      <h3 className="text-xl font-bold text-white mb-6">Surani tahrirlash - Kun {editSurah.day}</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <label className="text-gray-400 text-sm mb-1 block">Sura nomi (lotin)</label>
+                          <input type="text" className="input-dark w-full px-4 py-3"
+                            value={editSurah.name} onChange={e => setEditSurah({...editSurah, name: e.target.value})} />
+                        </div>
+                        <div>
+                          <label className="text-gray-400 text-sm mb-1 block">Sura nomi (arab)</label>
+                          <input type="text" className="input-dark w-full px-4 py-3 font-arabic text-right"
+                            value={editSurah.arabic} onChange={e => setEditSurah({...editSurah, arabic: e.target.value})} />
+                        </div>
+                        <div>
+                          <label className="text-gray-400 text-sm mb-1 block">Oyatlar soni</label>
+                          <input type="number" className="input-dark w-full px-4 py-3"
+                            value={editSurah.ayat} onChange={e => setEditSurah({...editSurah, ayat: parseInt(e.target.value)})} />
+                        </div>
+                        <div className="flex gap-3">
+                          <button onClick={saveSurah} className="btn-gold flex-1 py-3 rounded-xl font-bold">Saqlash</button>
+                          <button onClick={() => setEditSurah(null)} className="flex-1 py-3 rounded-xl text-gray-400 border border-white border-opacity-10">Bekor</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <div className="glass-card overflow-hidden">
+                  <div className="p-6 border-b border-white border-opacity-10">
+                    <h3 className="text-white font-bold text-lg">Barcha suralar (100 ta)</h3>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr style={{background:'rgba(255,255,255,0.04)'}}>
+                          <th className="text-left px-6 py-4 text-gray-400 text-sm">Kun</th>
+                          <th className="text-left px-6 py-4 text-gray-400 text-sm">Arab</th>
+                          <th className="text-left px-6 py-4 text-gray-400 text-sm">Lotin</th>
+                          <th className="text-left px-6 py-4 text-gray-400 text-sm">Oyatlar</th>
+                          <th className="text-left px-6 py-4 text-gray-400 text-sm">Amal</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {surahs.map(s => (
+                          <tr key={s.id} className="table-row-hover border-b border-white border-opacity-5">
+                            <td className="px-6 py-3 gold-text font-bold">{s.day}</td>
+                            <td className="px-6 py-3 font-arabic text-amber-300 text-lg">{s.arabic}</td>
+                            <td className="px-6 py-3 text-white">{s.name}</td>
+                            <td className="px-6 py-3 text-gray-400">{s.ayat}</td>
+                            <td className="px-6 py-3">
+                              <button onClick={() => setEditSurah(s)} className="text-emerald-400 hover:text-emerald-300 text-sm">
+                                ✏️ Tahrirlash
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Winners Tab */}
+            {activeTab === 'winners' && (
+              <div className="space-y-6">
+                <div className="glass-card p-6">
+                  <h3 className="text-white font-bold text-lg mb-4">Belgilangan g'oliblar ({winners.length}/3)</h3>
+                  {winners.length === 0 ? (
+                    <p className="text-gray-500 text-center py-8">Hali g'oliblar belgilanmagan</p>
+                  ) : (
+                    <div className="space-y-3">
+                      {winners.map((w, i) => (
+                        <div key={w.id} className="flex items-center justify-between p-4 rounded-xl" style={{background:'rgba(212,175,55,0.06)', border:'1px solid rgba(212,175,55,0.15)'}}>
+                          <div className="flex items-center gap-4">
+                            <span className="text-2xl">{['🥇','🥈','🥉'][i]}</span>
+                            <div>
+                              <p className="text-white font-bold">{w.name}</p>
+                              <p className="text-emerald-400 text-sm">{w.telegram}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-4">
+                            <span className="gold-text font-bold">{w.totalCompleted||0} sura</span>
+                            <button onClick={() => removeWinner(w.id)} className="text-red-400 hover:text-red-300 text-sm">
+                              🗑 O'chirish
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="glass-card overflow-hidden">
+                  <div className="p-6 border-b border-white border-opacity-10">
+                    <h3 className="text-white font-bold text-lg">Foydalanuvchilardan g'olib tanlash</h3>
+                    <p className="text-gray-400 text-sm mt-1">Ro'yxatdan o'tgan foydalanuvchilardan g'olib belgilang</p>
+                  </div>
+                  {users.length === 0 ? (
+                    <p className="text-gray-500 text-center py-12">Hali hech kim qatnashmagan</p>
+                  ) : (
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead>
+                          <tr style={{background:'rgba(255,255,255,0.04)'}}>
+                            <th className="text-left px-6 py-4 text-gray-400 text-sm">Ism</th>
+                            <th className="text-left px-6 py-4 text-gray-400 text-sm">Telegram</th>
+                            <th className="text-left px-6 py-4 text-gray-400 text-sm">Suralar</th>
+                            <th className="text-left px-6 py-4 text-gray-400 text-sm">Amal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {[...users].sort((a,b)=>(b.totalCompleted||0)-(a.totalCompleted||0)).map(u => (
+                            <tr key={u.id} className="table-row-hover border-b border-white border-opacity-5">
+                              <td className="px-6 py-4 text-white font-semibold">{u.name}</td>
+                              <td className="px-6 py-4 text-emerald-400">{u.telegram}</td>
+                              <td className="px-6 py-4 gold-text font-bold">{u.totalCompleted||0}/100</td>
+                              <td className="px-6 py-4">
+                                {winners.find(w => w.id === u.id) ? (
+                                  <span className="text-green-400 text-sm">✅ G'olib</span>
+                                ) : winners.length >= 3 ? (
+                                  <span className="text-gray-500 text-sm">To'ldi</span>
+                                ) : (
+                                  <button onClick={() => addWinner(u)} className="text-amber-400 hover:text-amber-300 text-sm transition-colors">
+                                    🏆 G'olib belgilash
+                                  </button>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    };
+
+    // ===================== APP =====================
+    const App = () => {
+      const [page, setPage] = useState('home');
+      const [darkMode, setDarkMode] = useState(true);
+      const [currentUser, setCurrentUser] = useState(() => storage.get('currentUser'));
+      const [toastMsg, setToastMsg] = useState('');
+
+      useEffect(() => { initData(); }, []);
+
+      useEffect(() => {
+        document.documentElement.classList.toggle('light', !darkMode);
+      }, [darkMode]);
+
+      const toast = (msg) => { setToastMsg(msg); setTimeout(() => setToastMsg(''), 3500); };
+
+      return (
+        <div className={darkMode ? 'dark' : 'light'}>
+          {toastMsg && <Toast message={toastMsg} onClose={() => setToastMsg('')} />}
+          
+          {page !== 'admin' && (
+            <Navbar page={page} setPage={setPage} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode} />
+          )}
+
+          <div key={page} className="animate-fadeinup" style={{animationDuration:'0.4s'}}>
+            {page === 'home' && <HomePage setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} toast={toast} />}
+            {page === 'daily' && <DailyPage currentUser={currentUser} setCurrentUser={setCurrentUser} toast={toast} />}
+            {page === 'leaderboard' && <LeaderboardPage />}
+            {page === 'winners' && <WinnersPage />}
+            {page === 'admin' && <AdminPage setPage={setPage} />}
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
